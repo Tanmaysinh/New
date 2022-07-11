@@ -1,0 +1,26 @@
+1.
+
+model.js line number 54 to 81
+problem is await is not working in async function .It will perform after return value from async function.
+I also problem with some example of value x in line 54 and 55
+
+I make one object of database schema and save it in database  by save function but that function execute after return 
+the va;ue so I am not able to know that it is saved successfully or not.
+
+I can't solve this error
+But..
+For continue the code and for run the code i used alternate solution of try and catch(line 46 to 51).
+if function execute then return value 
+or something went wrong.So I get a idea about function is executed succesfully or not
+
+
+
+2.
+I put validation on contact number that it is have to int and lenth is equal to 10.
+but whenever I submit form if will come in String format always.
+even In index.js from where I submit in this page line 23 Can see that I wrote input type 'tel'.
+
+I can't solve this error
+But..
+I use parseInt funtion(controller.js line 44) who convert in int also remove alphabates from value.
+

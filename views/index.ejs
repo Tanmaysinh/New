@@ -1,0 +1,64 @@
+<html>
+<head>
+	<style type="text/css">
+		form span{
+			font-size: 20px;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+
+	<center>
+		<% if(typeof error!="undefined"){%>
+		<span style="font-size: 30px;color: grey"><%=error%></span>
+		<% } %>
+	</center>
+	<div id='signup' style="display: none">
+		<center>
+			<h1>Sign Up</h1>  <br><br>
+			<form action="/register" method="Post">
+			<span>Email :</span><input type="text" name="email"> <br><br> 
+			<span>Name :</span><input type="text" name="name">  <br><br>
+			<span>Contact NO :</span><input type="tel" name="contactno">  <br><br>
+			<span>Position :</span><select name="position">
+				<option value='Manager'>Manager</option>
+				<option value='Employee'>Employee</option>
+			</select>  <br><br> 
+			
+			<span>password :</span><input type="text" name="password">  <br><br>
+			<input type="submit">  <br><br>
+			</form>
+
+			<button onclick="signin()">
+				Already user
+			</button>
+		</center>
+	</div>
+	<div id='signin'>
+		<center>
+			<h1>Sign In</h1>
+			<form action="/dash" method="Post">
+			<span>Email    :</span><input type="text" name="email">	<br><br>
+			<span>Password :</span><input type="text" name="password"> <br><br>
+			<input type="submit">   <br><br>
+			</form>
+
+			<button onclick="signup()">
+				New User
+			</button>
+		</center>
+	</div>
+
+	<script type="text/javascript">
+		function signin() {
+			document.getElementById('signup').style.display='none';
+			document.getElementById('signin').style.display='block';
+		}
+		function signup() {
+			document.getElementById('signup').style.display='block';
+			document.getElementById('signin').style.display='none';
+		}
+	</script>
+</body>
+</html>

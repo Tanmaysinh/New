@@ -1,0 +1,83 @@
+<html>
+<head>
+	<style type="text/css">
+		td input{
+			border: none;
+		}
+	</style>
+</head>
+<body>
+
+	<center>
+		<% if(typeof status!="undefined"){%>
+		<span style="font-size: 30px;color: grey"><%=status%></span><br>
+		<% } %>
+
+
+<% if(typeof data!="undefined"){%>
+		<table style="padding-top:20px;">
+			<form action='register' method="Post">
+				<input type="text" name="_id" value="<%=data._id%>" hidden>
+				<input type="text" name="position" value="<%=data.position%>" hidden>
+				<tr>
+					<td>Name :</td>
+					<td><input type='text'  id='inputtag1' name="name" value='<%=data.name%>' readonly></td>
+				</tr>
+				<tr>
+					<td>Email :</td>
+					<td><input type='text'  id='inputtag2' name="email" value='<%=data.email%>' readonly></td>
+				</tr>
+				<tr>
+					<td>Contact No :</td>
+					<td><input type='tel' id='inputtag3' name="contactno" value='<%=data.contactno%>' readonly></td>
+				</tr>
+				<tr>
+					<td>Password :</td>
+					<td><input type='text'  id='inputtag4' name="password"  value='<%=data.password%>' readonly></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type='submit' value='Update' id="submit" style="display: none"></td>
+				</tr>
+
+			</form>
+
+		</table>
+
+
+
+
+
+
+		<button onclick="update()">I want to update</button>
+<%
+if(data.position=='Manager'){
+%>
+<form action="details" method="Post">
+	<input type="text" name="email" value=0 hidden>
+	<input type="submit" value="view all Emplyee">
+</form>
+<%	
+}
+%>
+
+
+<% } %>		
+		
+		<script type="text/javascript">
+			function update(){
+				document.getElementById('inputtag1').removeAttribute('readonly');
+				document.getElementById('inputtag2').removeAttribute('readonly');
+				document.getElementById('inputtag3').removeAttribute('readonly');
+				document.getElementById('inputtag4').removeAttribute('readonly');
+
+				document.getElementById('inputtag1').style.border="2px solid black";
+				document.getElementById('inputtag2').style.border="2px solid black";
+				document.getElementById('inputtag3').style.border="2px solid black";
+				document.getElementById('inputtag4').style.border="2px solid black";
+				document.getElementById('submit').style.display="block";
+			}
+		</script>
+
+</body>
+</html>

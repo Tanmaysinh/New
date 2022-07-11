@@ -1,0 +1,55 @@
+<html>
+<head>
+</head>
+<body>
+
+	<center>
+		<% if(typeof status!="undefined"){%>
+		<span style="font-size: 30px;color: grey"><%=status%></span>
+		<% } %>
+
+
+
+		<table style="margin-top:20px;border:2px solid black" border="2">
+			<tr>
+				<td>Name</td>
+				<td>Email</td>
+				<td>Contact no</td>
+				
+				<td>Action</td>
+			
+			</tr>
+<% 
+if(typeof all_data!="undefined"){
+	for(let i=0;i< all_data.length;i++){
+%>
+	
+			<tr>
+				<td><%=all_data[i].name%></td>
+				<td><%=all_data[i].email%></td>
+				<td><%=all_data[i].contactno%></td>
+				
+				<td><button onclick="deleteid('<%=all_data[i]._id%>')">Remove</button></td>
+			
+			</tr>
+	
+
+
+<%
+	}}
+%>
+		</table>
+	</center>
+<form method="Post" action="Manager" style="display: none;">
+	<input type="text" name="id" id='input_id' required>
+	<input type="submit" id="submit">
+</form>
+	<script type="text/javascript">
+		function deleteid(id){
+			document.getElementById('input_id').value=id;
+			document.getElementById('submit').click();
+
+		}
+	</script>
+</body>
+</html>
